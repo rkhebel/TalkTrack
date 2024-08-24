@@ -1,0 +1,622 @@
+{
+  "workouts": [
+    {
+      "name": "Upper A - Push Focus",
+      "exercises": [
+        {
+          "exercise": "Barbell Incline Bench Press",
+          "sets": [
+            {
+              "set_number": 1,
+              "reps": {
+                "lower_range": 5,
+                "upper_range": 8
+              }
+            },
+            {
+              "set_number": 2,
+              "reps": {
+                "lower_range": 5,
+                "upper_range": 8
+              }
+            },
+            {
+              "set_number": 3,
+              "reps": {
+                "lower_range": 5,
+                "upper_range": 8
+              }
+            }
+          ]
+        },
+        {
+          "exercise": "Machine Seated Row",
+          "sets": [
+            {
+              "set_number": 1,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 12
+              }
+            },
+            {
+              "set_number": 2,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 12
+              }
+            },
+            {
+              "set_number": 3,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 12
+              }
+            }
+          ]
+        },
+        {
+          "exercise": "Machine Chest Press",
+          "sets": [
+            {
+              "set_number": 1,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 12
+              }
+            },
+            {
+              "set_number": 2,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 12
+              }
+            },
+            {
+              "set_number": 3,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 12
+              }
+            }
+          ]
+        },
+        {
+          "exercise": "Cable Lateral Raise",
+          "sets": [
+            {
+              "set_number": 1,
+              "reps": {
+                "lower_range": 12,
+                "upper_range": 15
+              }
+            },
+            {
+              "set_number": 2,
+              "reps": {
+                "lower_range": 12,
+                "upper_range": 15
+              }
+            },
+            {
+              "set_number": 3,
+              "reps": {
+                "lower_range": 12,
+                "upper_range": 15
+              }
+            }
+          ]
+        },
+        {
+          "exercise": "Dumbbell Seated Tricep Extension",
+          "sets": [
+            {
+              "set_number": 1,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 12
+              }
+            },
+            {
+              "set_number": 2,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 12
+              }
+            },
+            {
+              "set_number": 3,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 12
+              }
+            }
+          ]
+        },
+        {
+          "exercise": "Cable Single Arm Tricep Pushdown",
+          "sets": [
+            {
+              "set_number": 1,
+              "reps": {
+                "lower_range": 10,
+                "upper_range": 15
+              }
+            },
+            {
+              "set_number": 2,
+              "reps": {
+                "lower_range": 10,
+                "upper_range": 15
+              }
+            },
+            {
+              "set_number": 3,
+              "reps": {
+                "lower_range": 10,
+                "upper_range": 15
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lower A - Quad Focus",
+      "exercises": [
+        {
+          "exercise": "Barbell Squat",
+          "sets": [
+            {
+              "set_number": 1,
+              "reps": {
+                "lower_range": 5,
+                "upper_range": 8
+              }
+            },
+            {
+              "set_number": 2,
+              "reps": {
+                "lower_range": 5,
+                "upper_range": 8
+              }
+            },
+            {
+              "set_number": 3,
+              "reps": {
+                "lower_range": 5,
+                "upper_range": 8
+              }
+            }
+          ]
+        },
+        {
+          "exercise": "Barbell Romanian Deadlift",
+          "sets": [
+            {
+              "set_number": 1,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 12
+              }
+            },
+            {
+              "set_number": 2,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 12
+              }
+            },
+            {
+              "set_number": 3,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 12
+              }
+            }
+          ]
+        },
+        {
+          "exercise": "Machine Seated Leg Press",
+          "sets": [
+            {
+              "set_number": 1,
+              "reps": {
+                "lower_range": 10,
+                "upper_range": 15
+              }
+            },
+            {
+              "set_number": 2,
+              "reps": {
+                "lower_range": 10,
+                "upper_range": 15
+              }
+            },
+            {
+              "set_number": 3,
+              "reps": {
+                "lower_range": 10,
+                "upper_range": 15
+              }
+            }
+          ]
+        },
+        {
+          "exercise": "Machine Bicep Curl",
+          "sets": [
+            {
+              "set_number": 1,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 12
+              }
+            },
+            {
+              "set_number": 2,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 12
+              }
+            },
+            {
+              "set_number": 3,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 12
+              }
+            }
+          ]
+        },
+        {
+          "exercise": "Dumbbell Hammer Curl",
+          "sets": [
+            {
+              "set_number": 1,
+              "reps": {
+                "lower_range": 10,
+                "upper_range": 12
+              }
+            },
+            {
+              "set_number": 2,
+              "reps": {
+                "lower_range": 10,
+                "upper_range": 12
+              }
+            },
+            {
+              "set_number": 3,
+              "reps": {
+                "lower_range": 10,
+                "upper_range": 12
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Upper B - Pull Focus",
+      "exercises": [
+        {
+          "exercise": "Barbell Bent-Over Row",
+          "sets": [
+            {
+              "set_number": 1,
+              "reps": {
+                "lower_range": 5,
+                "upper_range": 8
+              }
+            },
+            {
+              "set_number": 2,
+              "reps": {
+                "lower_range": 5,
+                "upper_range": 8
+              }
+            },
+            {
+              "set_number": 3,
+              "reps": {
+                "lower_range": 5,
+                "upper_range": 8
+              }
+            }
+          ]
+        },
+        {
+          "exercise": "Dumbbell Bench Press",
+          "sets": [
+            {
+              "set_number": 1,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 12
+              }
+            },
+            {
+              "set_number": 2,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 12
+              }
+            },
+            {
+              "set_number": 3,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 12
+              }
+            }
+          ]
+        },
+        {
+          "exercise": "Cable Single Arm Lat Pulldown",
+          "sets": [
+            {
+              "set_number": 1,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 12
+              }
+            },
+            {
+              "set_number": 2,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 12
+              }
+            },
+            {
+              "set_number": 3,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 12
+              }
+            }
+          ]
+        },
+        {
+          "exercise": "Cable Tricep Pushdown",
+          "sets": [
+            {
+              "set_number": 1,
+              "reps": {
+                "lower_range": 10,
+                "upper_range": 15
+              }
+            },
+            {
+              "set_number": 2,
+              "reps": {
+                "lower_range": 10,
+                "upper_range": 15
+              }
+            },
+            {
+              "set_number": 3,
+              "reps": {
+                "lower_range": 10,
+                "upper_range": 15
+              }
+            }
+          ]
+        },
+        {
+          "exercise": "Cable Curl",
+          "sets": [
+            {
+              "set_number": 1,
+              "reps": {
+                "lower_range": 10,
+                "upper_range": 12
+              }
+            },
+            {
+              "set_number": 2,
+              "reps": {
+                "lower_range": 10,
+                "upper_range": 12
+              }
+            },
+            {
+              "set_number": 3,
+              "reps": {
+                "lower_range": 10,
+                "upper_range": 12
+              }
+            }
+          ]
+        },
+        {
+          "exercise": "Cable Standing Rear Delt Row with Rope (Face Pull)",
+          "sets": [
+            {
+              "set_number": 1,
+              "reps": {
+                "lower_range": 12,
+                "upper_range": 15
+              }
+            },
+            {
+              "set_number": 2,
+              "reps": {
+                "lower_range": 12,
+                "upper_range": 15
+              }
+            },
+            {
+              "set_number": 3,
+              "reps": {
+                "lower_range": 12,
+                "upper_range": 15
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lower B - Posterior Chain Focus",
+      "exercises": [
+        {
+          "exercise": "Barbell Deadlift",
+          "sets": [
+            {
+              "set_number": 1,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 8
+              }
+            },
+            {
+              "set_number": 2,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 8
+              }
+            },
+            {
+              "set_number": 3,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 8
+              }
+            }
+          ]
+        },
+        {
+          "exercise": "Dumbbell Bulgarian Split Squat",
+          "sets": [
+            {
+              "set_number": 1,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 12
+              }
+            },
+            {
+              "set_number": 2,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 12
+              }
+            },
+            {
+              "set_number": 3,
+              "reps": {
+                "lower_range": 8,
+                "upper_range": 12
+              }
+            }
+          ]
+        },
+        {
+          "exercise": "Machine Leg Extension",
+          "sets": [
+            {
+              "set_number": 1,
+              "reps": {
+                "lower_range": 12,
+                "upper_range": 15
+              }
+            },
+            {
+              "set_number": 2,
+              "reps": {
+                "lower_range": 12,
+                "upper_range": 15
+              }
+            },
+            {
+              "set_number": 3,
+              "reps": {
+                "lower_range": 12,
+                "upper_range": 15
+              }
+            }
+          ]
+        },
+        {
+          "exercise": "Cable Single Arm Curl",
+          "sets": [
+            {
+              "set_number": 1,
+              "reps": {
+                "lower_range": 10,
+                "upper_range": 12
+              }
+            },
+            {
+              "set_number": 2,
+              "reps": {
+                "lower_range": 10,
+                "upper_range": 12
+              }
+            },
+            {
+              "set_number": 3,
+              "reps": {
+                "lower_range": 10,
+                "upper_range": 12
+              }
+            }
+          ]
+        },
+        {
+          "exercise": "Smith Machine Calf Raise",
+          "sets": [
+            {
+              "set_number": 1,
+              "reps": {
+                "lower_range": 12,
+                "upper_range": 15
+              }
+            },
+            {
+              "set_number": 2,
+              "reps": {
+                "lower_range": 12,
+                "upper_range": 15
+              }
+            },
+            {
+              "set_number": 3,
+              "reps": {
+                "lower_range": 12,
+                "upper_range": 15
+              }
+            }
+          ]
+        },
+        {
+          "exercise": "Cable Kneeling Crunch",
+          "sets": [
+            {
+              "set_number": 1,
+              "reps": {
+                "lower_range": 15,
+                "upper_range": 20
+              }
+            },
+            {
+              "set_number": 2,
+              "reps": {
+                "lower_range": 15,
+                "upper_range": 20
+              }
+            },
+            {
+              "set_number": 3,
+              "reps": {
+                "lower_range": 15,
+                "upper_range": 20
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
