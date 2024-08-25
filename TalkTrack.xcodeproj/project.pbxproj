@@ -10,6 +10,7 @@
 		87A24CE82C72AD5E003898BE /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A24CE72C72AD5E003898BE /* WidgetKit.framework */; };
 		87A24CEA2C72AD5E003898BE /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A24CE92C72AD5E003898BE /* SwiftUI.framework */; };
 		87A24CF72C72AD60003898BE /* TalkTrackWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 87A24CE52C72AD5E003898BE /* TalkTrackWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		87E9DF732C7AA1A7002131D5 /* SwiftOpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 87E9DF722C7AA1A7002131D5 /* SwiftOpenAI */; };
 		87EA81522C7A341300129C70 /* SwiftOpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 87EA81512C7A341300129C70 /* SwiftOpenAI */; };
 /* End PBXBuildFile section */
 
@@ -71,14 +72,15 @@
 		87A24D382C72C360003898BE /* Exceptions for "TalkTrack" folder in "TalkTrackWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Shared/Models/AssistantThreadConfigurationProvider.swift,
+				Shared/Models/AssitantConfigurationProvider.swift,
 				Shared/Models/ChatMessage.swift,
 				Shared/Models/Conversation.swift,
 				Shared/Models/Routine.swift,
 				Shared/Utils/AppIntents.swift,
 				Shared/Utils/FileManagerHelper.swift,
-				Shared/Utils/JSONDecoderHelper.swift,
 				Shared/Utils/LiveActivityManager.swift,
-				Shared/Utils/NetworkManager.swift,
+				Shared/Utils/OpenAIAPIConfig.swift,
 				Shared/Utils/SpeechRecognizer.swift,
 			);
 			target = 87A24CE42C72AD5E003898BE /* TalkTrackWidgetExtension */;
@@ -97,37 +99,41 @@
 			);
 			target = 87A24CB32C72ACCA003898BE /* TalkTrack */;
 		};
-		87EA814E2C7A337700129C70 /* Exceptions for "archived_OpenAI" folder in "TalkTrack" target */ = {
+		87EA814E2C7A337700129C70 /* Exceptions for "archived" folder in "TalkTrack" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Models/Assistants/Assistant.swift,
-				Models/Assistants/Message.swift,
-				Models/Assistants/ResponseFormat.swift,
-				Models/Assistants/Run.swift,
-				Models/Assistants/RunStep.swift,
-				Models/Assistants/Thread.swift,
-				Models/Assistants/Tool.swift,
-				Models/Assistants/ToolResources.swift,
-				Models/Assistants/VectorStore.swift,
-				Models/Assistants/VectorStoreFile.swift,
-				OpenAIAPI.swift,
+				JSONDecoderHelper.swift,
+				NetworkManager.swift,
+				OpenAI/Models/Assistants/Assistant.swift,
+				OpenAI/Models/Assistants/Message.swift,
+				OpenAI/Models/Assistants/ResponseFormat.swift,
+				OpenAI/Models/Assistants/Run.swift,
+				OpenAI/Models/Assistants/RunStep.swift,
+				OpenAI/Models/Assistants/Thread.swift,
+				OpenAI/Models/Assistants/Tool.swift,
+				OpenAI/Models/Assistants/ToolResources.swift,
+				OpenAI/Models/Assistants/VectorStore.swift,
+				OpenAI/Models/Assistants/VectorStoreFile.swift,
+				OpenAI/OpenAIAPI.swift,
 			);
 			target = 87A24CB32C72ACCA003898BE /* TalkTrack */;
 		};
-		87EA814F2C7A337700129C70 /* Exceptions for "archived_OpenAI" folder in "TalkTrackWidgetExtension" target */ = {
+		87EA814F2C7A337700129C70 /* Exceptions for "archived" folder in "TalkTrackWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Models/Assistants/Assistant.swift,
-				Models/Assistants/Message.swift,
-				Models/Assistants/ResponseFormat.swift,
-				Models/Assistants/Run.swift,
-				Models/Assistants/RunStep.swift,
-				Models/Assistants/Thread.swift,
-				Models/Assistants/Tool.swift,
-				Models/Assistants/ToolResources.swift,
-				Models/Assistants/VectorStore.swift,
-				Models/Assistants/VectorStoreFile.swift,
-				OpenAIAPI.swift,
+				JSONDecoderHelper.swift,
+				NetworkManager.swift,
+				OpenAI/Models/Assistants/Assistant.swift,
+				OpenAI/Models/Assistants/Message.swift,
+				OpenAI/Models/Assistants/ResponseFormat.swift,
+				OpenAI/Models/Assistants/Run.swift,
+				OpenAI/Models/Assistants/RunStep.swift,
+				OpenAI/Models/Assistants/Thread.swift,
+				OpenAI/Models/Assistants/Tool.swift,
+				OpenAI/Models/Assistants/ToolResources.swift,
+				OpenAI/Models/Assistants/VectorStore.swift,
+				OpenAI/Models/Assistants/VectorStoreFile.swift,
+				OpenAI/OpenAIAPI.swift,
 			);
 			target = 87A24CE42C72AD5E003898BE /* TalkTrackWidgetExtension */;
 		};
@@ -162,13 +168,13 @@
 			path = TalkTrackWidget;
 			sourceTree = "<group>";
 		};
-		87EA814C2C7A335D00129C70 /* archived_OpenAI */ = {
+		87EA814C2C7A335D00129C70 /* archived */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				87EA814E2C7A337700129C70 /* Exceptions for "archived_OpenAI" folder in "TalkTrack" target */,
-				87EA814F2C7A337700129C70 /* Exceptions for "archived_OpenAI" folder in "TalkTrackWidgetExtension" target */,
+				87EA814E2C7A337700129C70 /* Exceptions for "archived" folder in "TalkTrack" target */,
+				87EA814F2C7A337700129C70 /* Exceptions for "archived" folder in "TalkTrackWidgetExtension" target */,
 			);
-			path = archived_OpenAI;
+			path = archived;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -201,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87A24CEA2C72AD5E003898BE /* SwiftUI.framework in Frameworks */,
+				87E9DF732C7AA1A7002131D5 /* SwiftOpenAI in Frameworks */,
 				87A24CE82C72AD5E003898BE /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,7 +224,7 @@
 				87A24CB52C72ACCA003898BE /* Products */,
 				87A24CD12C72ACCD003898BE /* TalkTrackUITests */,
 				87A24CC72C72ACCD003898BE /* TalkTrackTests */,
-				87EA814C2C7A335D00129C70 /* archived_OpenAI */,
+				87EA814C2C7A335D00129C70 /* archived */,
 			);
 			sourceTree = "<group>";
 		};
@@ -332,6 +339,7 @@
 			);
 			name = TalkTrackWidgetExtension;
 			packageProductDependencies = (
+				87E9DF722C7AA1A7002131D5 /* SwiftOpenAI */,
 			);
 			productName = TalkTrackWidgetExtension;
 			productReference = 87A24CE52C72AD5E003898BE /* TalkTrackWidgetExtension.appex */;
@@ -835,13 +843,18 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jamesrochabrun/SwiftOpenAI";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.4.0;
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		87E9DF722C7AA1A7002131D5 /* SwiftOpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87EA81502C7A341300129C70 /* XCRemoteSwiftPackageReference "SwiftOpenAI" */;
+			productName = SwiftOpenAI;
+		};
 		87EA81512C7A341300129C70 /* SwiftOpenAI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 87EA81502C7A341300129C70 /* XCRemoteSwiftPackageReference "SwiftOpenAI" */;

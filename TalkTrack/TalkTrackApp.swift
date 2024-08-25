@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftOpenAI
 
 @main
 struct TalkTrackApp: App {
@@ -14,4 +15,10 @@ struct TalkTrackApp: App {
             ContentView()
         }
     }
+}
+
+// Setting up global environment variables
+extension EnvironmentValues {
+    @Entry var openAIService: OpenAIService = OpenAIServiceFactory.service(apiKey: OpenAIAPIConfig.apiKey)
+    @Entry var assistantId: String = "asst_GotIdjNzJbN79lAs3pRMZlHg"
 }

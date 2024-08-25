@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import SwiftOpenAI
 
 struct ContentView: View {
     @State private var selection: AppScreen? = .start
+    @Environment(\.openAIService) var openAIService
     
     var body: some View {
         Text("TalkTrack")
@@ -16,6 +18,8 @@ struct ContentView: View {
         AppTabView(selection: $selection)
     }
 }
+
+
 
 #Preview {
     ContentView()
