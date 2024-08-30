@@ -36,7 +36,7 @@ extension AppScreen {
         case .history:
             WorkoutHistoryView()
         case .routines:
-            WorkoutRoutinesView()
+            RoutineListView()
         }
     }
 }

@@ -6,50 +6,58 @@
 //
 
 import SwiftUI
+import SwiftOpenAI
 
 struct CurrentWorkoutView: View {
-    @State private var isRecording = false
+    @Environment(\.openAIService) var openAIService
+    @AppStorage("threadID", store: UserDefaults(suiteName: "com.ryanhebel.TalkTrack.SharedData")) var threadID: String = "defaultThread"
+    @AppStorage("assistantID", store: UserDefaults(suiteName: "com.ryanhebel.TalkTrack.SharedData")) var assistantID: String = "defaultAssistant"
+    @State private var isSheetPresented: Bool = false
     
     var body: some View {
-        VStack {
-            Text("Chat history")
-                .font(.title)
-            ScrollView {
-                ForEach(Conversation.shared.chatHistory) { message in
-                    ChatMessageView(message: message)
-                }
+        ZStack(alignment: .bottom) {
+            // Your current workout content
+            VStack {
+                Text("Current Workout")
+                    .font(.largeTitle)
+                    .padding()
+                Spacer()
             }
-            .padding()
-            Circle()
-                .strokeBorder(lineWidth: 24)
-                .overlay {
-                    VStack {
-                        Button(action: {
-                            isRecording.toggle()
-                            if isRecording {
-                                Conversation.shared.startRecording()
-                            } else {
-                                let transcript = Conversation.shared.stopRecording()
-                                Conversation.shared.updateHistory(transcript: transcript)
-                            }
-                        }) {
-                            Text(isRecording ? "Stop" : "Record")
-                                .padding()
-                                .background(isRecording ? Color.gray : Color.green)
-                                .foregroundColor(.white)
-                                .cornerRadius(8)
-                        }
-                        Image(systemName: isRecording ? "mic" : "mic.slash")
-                            .imageScale(.large)
-                            .font(.title)
-                            .padding()
+            
+            // Conversation sheet handle
+            VStack {
+                Button(action: {
+                    withAnimation {
+                        isSheetPresented.toggle()
                     }
+                }) {
+                    Image(systemName: isSheetPresented ? "chevron.down" : "chevron.up")
+                        .font(.system(size: 24, weight: .bold))
+                        .padding()
+                        .background(Color.gray.opacity(0.2))
+                        .clipShape(Circle())
                 }
+                .padding(.bottom, 8)
+                
+                Spacer() // Pushes the rest of the content up
+            }
+            .frame(maxWidth: .infinity)
+            .background(Color.white)
+            .cornerRadius(16)
+            .shadow(radius: 10)
+            .offset(y: isSheetPresented ? 0 : UIScreen.main.bounds.height * 0.8) //
         }
-        .padding()
+        .edgesIgnoringSafeArea(.all)
+        .sheet(isPresented: $isSheetPresented) {
+            ConversationView(openAIService: openAIService, threadID: threadID, assistantID: assistantID)
+        }
+
     }
 }
+
 
 #Preview {
     CurrentWorkoutView()
 }
+
+

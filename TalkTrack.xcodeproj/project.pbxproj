@@ -53,12 +53,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		87726CFA2C7D4E2C001859D7 /* TalkTrackWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TalkTrackWidgetExtension.entitlements; sourceTree = "<group>"; };
 		87A24CB42C72ACCA003898BE /* TalkTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TalkTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A24CC42C72ACCD003898BE /* TalkTrackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TalkTrackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A24CCE2C72ACCD003898BE /* TalkTrackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TalkTrackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A24CE52C72AD5E003898BE /* TalkTrackWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TalkTrackWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A24CE72C72AD5E003898BE /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		87A24CE92C72AD5E003898BE /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		87E9DF772C7BEFA6002131D5 /* archived */ = {isa = PBXFileReference; lastKnownFileType = folder; path = archived; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -72,11 +74,9 @@
 		87A24D382C72C360003898BE /* Exceptions for "TalkTrack" folder in "TalkTrackWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Shared/Models/AssistantThreadConfigurationProvider.swift,
-				Shared/Models/AssitantConfigurationProvider.swift,
 				Shared/Models/ChatMessage.swift,
-				Shared/Models/Conversation.swift,
 				Shared/Models/Routine.swift,
+				Shared/Models/Thread.swift,
 				Shared/Utils/AppIntents.swift,
 				Shared/Utils/FileManagerHelper.swift,
 				Shared/Utils/LiveActivityManager.swift,
@@ -98,44 +98,6 @@
 				Info.plist,
 			);
 			target = 87A24CB32C72ACCA003898BE /* TalkTrack */;
-		};
-		87EA814E2C7A337700129C70 /* Exceptions for "archived" folder in "TalkTrack" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				JSONDecoderHelper.swift,
-				NetworkManager.swift,
-				OpenAI/Models/Assistants/Assistant.swift,
-				OpenAI/Models/Assistants/Message.swift,
-				OpenAI/Models/Assistants/ResponseFormat.swift,
-				OpenAI/Models/Assistants/Run.swift,
-				OpenAI/Models/Assistants/RunStep.swift,
-				OpenAI/Models/Assistants/Thread.swift,
-				OpenAI/Models/Assistants/Tool.swift,
-				OpenAI/Models/Assistants/ToolResources.swift,
-				OpenAI/Models/Assistants/VectorStore.swift,
-				OpenAI/Models/Assistants/VectorStoreFile.swift,
-				OpenAI/OpenAIAPI.swift,
-			);
-			target = 87A24CB32C72ACCA003898BE /* TalkTrack */;
-		};
-		87EA814F2C7A337700129C70 /* Exceptions for "archived" folder in "TalkTrackWidgetExtension" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				JSONDecoderHelper.swift,
-				NetworkManager.swift,
-				OpenAI/Models/Assistants/Assistant.swift,
-				OpenAI/Models/Assistants/Message.swift,
-				OpenAI/Models/Assistants/ResponseFormat.swift,
-				OpenAI/Models/Assistants/Run.swift,
-				OpenAI/Models/Assistants/RunStep.swift,
-				OpenAI/Models/Assistants/Thread.swift,
-				OpenAI/Models/Assistants/Tool.swift,
-				OpenAI/Models/Assistants/ToolResources.swift,
-				OpenAI/Models/Assistants/VectorStore.swift,
-				OpenAI/Models/Assistants/VectorStoreFile.swift,
-				OpenAI/OpenAIAPI.swift,
-			);
-			target = 87A24CE42C72AD5E003898BE /* TalkTrackWidgetExtension */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -166,15 +128,6 @@
 				87A24CF82C72AD60003898BE /* Exceptions for "TalkTrackWidget" folder in "TalkTrackWidgetExtension" target */,
 			);
 			path = TalkTrackWidget;
-			sourceTree = "<group>";
-		};
-		87EA814C2C7A335D00129C70 /* archived */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				87EA814E2C7A337700129C70 /* Exceptions for "archived" folder in "TalkTrack" target */,
-				87EA814F2C7A337700129C70 /* Exceptions for "archived" folder in "TalkTrackWidgetExtension" target */,
-			);
-			path = archived;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -218,13 +171,14 @@
 		87A24CAB2C72ACCA003898BE = {
 			isa = PBXGroup;
 			children = (
+				87726CFA2C7D4E2C001859D7 /* TalkTrackWidgetExtension.entitlements */,
 				87A24CB62C72ACCA003898BE /* TalkTrack */,
 				87A24CEB2C72AD5E003898BE /* TalkTrackWidget */,
 				87A24CE62C72AD5E003898BE /* Frameworks */,
 				87A24CB52C72ACCA003898BE /* Products */,
 				87A24CD12C72ACCD003898BE /* TalkTrackUITests */,
 				87A24CC72C72ACCD003898BE /* TalkTrackTests */,
-				87EA814C2C7A335D00129C70 /* archived */,
+				87E9DF772C7BEFA6002131D5 /* archived */,
 			);
 			sourceTree = "<group>";
 		};
@@ -601,6 +555,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TalkTrack/TalkTrack.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TalkTrack/Preview Content\"";
@@ -634,6 +589,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TalkTrack/TalkTrack.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TalkTrack/Preview Content\"";
@@ -739,6 +695,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = TalkTrackWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 36D95XX5WY;
@@ -766,6 +723,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = TalkTrackWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 36D95XX5WY;
