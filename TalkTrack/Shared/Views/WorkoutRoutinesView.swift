@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct WorkoutRoutinesView: View {
+struct RoutineListView: View {
     @State private var jsonBlob: String = FileManagerHelper.loadJSONToString(fileName: "upper_lower_routine", fileExtension: "json")
     
     var body: some View {
@@ -23,5 +23,5 @@ struct WorkoutRoutinesView: View {
 }
 
 #Preview {
-    WorkoutRoutinesView()
+    RoutineListView()
 }

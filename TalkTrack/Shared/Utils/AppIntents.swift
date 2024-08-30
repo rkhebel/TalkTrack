@@ -14,7 +14,7 @@ struct StartRecordingIntent: LiveActivityIntent, AudioRecordingIntent {
     static var description: IntentDescription = "Start recording audio"
     
     func perform() async throws -> some IntentResult {
-        await Conversation.shared.startRecording()
+        await SpeechRecognizer.shared.startTranscribing()
         return .result()
     }
 }
@@ -26,8 +26,7 @@ struct StopRecordingIntent: LiveActivityIntent, AudioRecordingIntent {
     static var description: IntentDescription = "Stop recording audio"
     
     func perform() async throws -> some IntentResult {
-        let transcript = await Conversation.shared.stopRecording()
-        Conversation.shared.updateHistory(transcript: transcript)
+        let transcript = await SpeechRecognizer.shared.stopTranscribing()
         await LiveActivityManager.shared.updateActivity(displayText: transcript)
         return .result()
     }
