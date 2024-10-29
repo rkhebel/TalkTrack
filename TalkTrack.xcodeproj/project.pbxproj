@@ -74,10 +74,19 @@
 		87A24D382C72C360003898BE /* Exceptions for "TalkTrack" folder in "TalkTrackWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Shared/Models/ChatMessage.swift,
-				Shared/Models/Routine.swift,
-				Shared/Models/Thread.swift,
+				Shared/Models/Threads/ChatMessage.swift,
+				Shared/Models/Threads/Conversation.swift,
+				Shared/Models/Workouts/Assistant/AssistantExercise.swift,
+				Shared/Models/Workouts/Assistant/AssistantExerciseSet.swift,
+				Shared/Models/Workouts/Assistant/AssistantWorkout.swift,
+				Shared/Models/Workouts/Exercise.swift,
+				Shared/Models/Workouts/ExerciseSet.swift,
+				Shared/Models/Workouts/Routine.swift,
+				Shared/Models/Workouts/Workout.swift,
 				Shared/Utils/AppIntents.swift,
+				Shared/Utils/ConversationService.swift,
+				Shared/Utils/Database/DataHandler.swift,
+				Shared/Utils/Database/DataProvider.swift,
 				Shared/Utils/FileManagerHelper.swift,
 				Shared/Utils/LiveActivityManager.swift,
 				Shared/Utils/OpenAIAPIConfig.swift,
@@ -491,6 +500,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
 			};
 			name = Debug;
 		};
@@ -546,6 +556,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

@@ -9,18 +9,20 @@ import Foundation
 import SwiftOpenAI
 
 @Observable
-class ChatMessage: Identifiable, Codable {
-    let id: String
+final class ChatMessage: Identifiable, Codable, Sendable {
+    let id: UUID
     let createdAt: Date
+    let openAIID: String?
     let role: MessageRole
     var text: String
     
-    init(id: String, createdAt: Date, role: MessageRole, text: String) {
-            self.id = id
-            self.createdAt = createdAt
-            self.role = role
-            self.text = text
-        }
+    init(id: UUID  = UUID(), createdAt: Date = Date(), openAIID: String? = "", role: MessageRole, text: String) {
+        self.id = id
+        self.createdAt = createdAt
+        self.openAIID = openAIID
+        self.role = role
+        self.text = text
+    }
         
     enum MessageRole: String, Codable, Hashable, CaseIterable {
         case user
@@ -60,7 +62,7 @@ class ChatMessage: Identifiable, Codable {
         let date = Date(timeIntervalSince1970: TimeInterval(messageObject.createdAt))
         
         // Create and return a new ChatMessage
-        self.init(id: messageObject.id, createdAt: date, role: role, text: messageText)
+        self.init(createdAt: date, openAIID: messageObject.id, role: role, text: messageText)
     }
     
 }

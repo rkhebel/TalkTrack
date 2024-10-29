@@ -9,55 +9,91 @@ import SwiftUI
 import SwiftOpenAI
 
 struct CurrentWorkoutView: View {
+    @Environment(\.dismiss) var dismiss
     @Environment(\.openAIService) var openAIService
-    @AppStorage("threadID", store: UserDefaults(suiteName: "com.ryanhebel.TalkTrack.SharedData")) var threadID: String = "defaultThread"
-    @AppStorage("assistantID", store: UserDefaults(suiteName: "com.ryanhebel.TalkTrack.SharedData")) var assistantID: String = "defaultAssistant"
     @State private var isSheetPresented: Bool = false
+    @State var currentWorkout: Workout
+    @State var conversation: Conversation
+    @State private var navigateToCompleted = false // State to trigger navigation
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            // Your current workout content
+        NavigationStack {
             VStack {
-                Text("Current Workout")
-                    .font(.largeTitle)
-                    .padding()
+                HStack {
+                    Button("Minimize", systemImage: "chevron.down"){
+                        dismiss()
+                    }
+                    .labelStyle(.iconOnly)
+                    .padding([.leading, .trailing], 20)
+                    Text(currentWorkout.name)
+                        .bold()
+                        .frame(maxWidth: 200)
+                        .truncationMode(.tail)
+                        .lineLimit(1)
+                    Spacer()
+                    Button(action: {
+                        do {
+                            try currentWorkout.completeWorkout()
+                            let encoder = JSONEncoder()
+                            let jsonData = try encoder.encode(currentWorkout)
+                            if let jsonString = String(data: jsonData, encoding: .utf8) {
+                                print(jsonString)
+                            }
+                            navigateToCompleted = true
+                        } catch {
+                            print("Couldn't complete workout: \(error.localizedDescription)")
+                        }
+                    }) {
+                        Text("Finish")
+                    }
+                    .padding([.trailing], 20)
+                }
+                
+                ScrollView {
+                    ForEach(currentWorkout.exercises) { exercise in
+                        ExerciseView(exercise: exercise)
+                    }
+                }
                 Spacer()
-            }
-            
-            // Conversation sheet handle
-            VStack {
                 Button(action: {
                     withAnimation {
                         isSheetPresented.toggle()
                     }
                 }) {
-                    Image(systemName: isSheetPresented ? "chevron.down" : "chevron.up")
-                        .font(.system(size: 24, weight: .bold))
-                        .padding()
-                        .background(Color.gray.opacity(0.2))
-                        .clipShape(Circle())
+                    HStack {
+                        Text("Conversation")
+                        Image(systemName: "chevron.up")
+                            .font(.system(size: 12, weight: .bold))
+                            .padding()
+                            .background(Color.gray.opacity(0.2))
+                            .clipShape(Circle())
+                    }
                 }
-                .padding(.bottom, 8)
-                
-                Spacer() // Pushes the rest of the content up
+                // Navigation to CompletedWorkoutView
+                NavigationLink(
+                    destination: CompletedWorkoutView(parentDismiss: dismiss),
+                    isActive: $navigateToCompleted
+                ) {
+                    EmptyView()
+                }
             }
-            .frame(maxWidth: .infinity)
-            .background(Color.white)
-            .cornerRadius(16)
-            .shadow(radius: 10)
-            .offset(y: isSheetPresented ? 0 : UIScreen.main.bounds.height * 0.8) //
+            .sheet(isPresented: $isSheetPresented) {
+                ConversationView(conversation: conversation, openAIService: openAIService)
+                    .presentationDetents([.large])
+                    .presentationDragIndicator(.visible)
+            }
         }
-        .edgesIgnoringSafeArea(.all)
-        .sheet(isPresented: $isSheetPresented) {
-            ConversationView(openAIService: openAIService, threadID: threadID, assistantID: assistantID)
-        }
-
+        
     }
 }
 
 
 #Preview {
-    CurrentWorkoutView()
+    let container = DataProvider.shared.previewContainer()
+    let currentWorkout = Workout.generateStartedLogWorkout()
+    container.mainContext.insert(currentWorkout)
+    return CurrentWorkoutView(currentWorkout: Workout.generateStartedLogWorkout(), conversation: Conversation.sampleConversation())
+        .modelContainer(DataProvider.shared.previewContainer())
 }
 
 

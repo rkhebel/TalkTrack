@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Routine",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for the routine."
+    },
+    "createdDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time when the routine was created."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the routine."
+    },
+    "workouts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Workout"
+      },
+      "description": "A list of workouts included in the routine."
+    },
+    "isCurrent": {
+      "type": "boolean",
+      "description": "Indicates if this routine is currently active."
+    }
+  },
+  "required": ["id", "createdDate", "name", "workouts"]
+}
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Workout",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for the workout."
+    },
+    "createdDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time when the workout was created."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the workout."
+    },
+    "exercises": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Exercise"
+      },
+      "description": "A list of exercises included in the workout."
+    }
+  },
+  "required": ["id", "createdDate", "name", "exercises"]
+}
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Exercise",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for the exercise."
+    },
+    "createdDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time when the exercise was created."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the exercise."
+    },
+    "sets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ExerciseSet"
+      },
+      "description": "A list of sets included in the exercise."
+    }
+  },
+  "required": ["id", "createdDate", "name", "sets"]
+}
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExerciseSet",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for the exercise set."
+    },
+    "reps": {
+      "type": "integer",
+      "description": "The number of repetitions in the set."
+    },
+    "weight": {
+      "type": "number",
+      "description": "The weight used for the set."
+    }
+  },
+  "required": ["id", "reps", "weight"]
+}
