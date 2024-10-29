@@ -11,10 +11,13 @@ enum AppScreen: Codable, Hashable, Identifiable, CaseIterable {
     case start
     case history
     case routines
+    case chat
+    case settings
     
     var id: AppScreen { self }
 }
 
+@MainActor
 extension AppScreen {
     @ViewBuilder
     var label: some View {
@@ -25,6 +28,10 @@ extension AppScreen {
             Label("History", systemImage: "clock")
         case .routines:
             Label("Routines", systemImage: "list.bullet")
+        case .chat:
+            Label("Chat", systemImage: "message")
+        case .settings:
+            Label("Settings", systemImage: "gear")
         }
     }
     
@@ -37,6 +44,10 @@ extension AppScreen {
             WorkoutHistoryView()
         case .routines:
             RoutineListView()
+        case .chat:
+            ChatPageView()
+        case .settings:
+            SettingsView()
         }
     }
 }

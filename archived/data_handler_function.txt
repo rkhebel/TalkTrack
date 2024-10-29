@@ -1,0 +1,249 @@
+Call the dataHandler function when the user intends to create, update, or delete routines, workouts, exercises, or exercise sets. Only ask the user for clarification if it is very unclear from the conversation or when it's a delete operation. Do not set a routine to current unless explicitly asked by the user. Only set a workout to current if the user explicitly asks, or if the user is in the process of logging an active workout. Whenever the user makes a request to interact with an object, check the vector store using context from the conversation to find an object that exists. If it does, you must supply the ID with the request (for updates and deletes). If it does not, you do not need to supply an ID (for creates). Do not set a routine to current unless explicitly asked by the user. Only set a workout to current if the user explicitly asks, or if the user is in the process of logging an active workout. Do not set an object ID unless that information has been provided to you.
+
+{
+  "name": "dataHandler",
+  "description": "Performs create, update, and delete operations on routine, workout, exercise, and exercise set objects. Call this function when the user asks to interact with app data in scenarios such as creating new objects, editing current or past workout data, or removing data.",
+  "strict": false,
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "operation": {
+        "type": "string",
+        "description": "The operation to perform, such as 'upsert' or 'delete'.",
+        "enum": [
+          "create",
+          "update",
+          "delete"
+        ],
+        "additionalProperties": false
+      },
+      "object_type": {
+        "type": "string",
+        "description": "The type of object to perform the operation on. Should be 'Routine' or 'Workout'.",
+        "enum": [
+          "Routine",
+          "Workout",
+          "Exercise",
+          "ExerciseSet"
+        ],
+        "additionalProperties": false
+      },
+      "object_id": {
+        "type": "string",
+        "description": "The ID of the object (required for update or delete).",
+        "additionalProperties": false
+      },
+      "payload": {
+        "type": "object",
+        "description": "The JSON formatted data needed for the operation, structure varies based on the object type and operation.",
+        "anyOf": [
+          {
+            "$ref": "#/$defs/Routine"
+          },
+          {
+            "$ref": "#/$defs/Workout"
+          },
+          {
+            "$ref": "#/$defs/Exercise"
+          },
+          {
+            "$ref": "#/$defs/ExerciseSet"
+          }
+        ],
+        "additionalProperties": false
+      }
+    },
+    "if": {
+      "properties": {
+        "operation": {
+          "const": "delete"
+        }
+      }
+    },
+    "then": {
+      "required": [
+        "object_id"
+      ]
+    },
+    "else": {
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "update"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "object_id"
+        ]
+      },
+      "else": {
+        "if": {
+          "properties": {
+            "operation": {
+              "const": "create"
+            }
+          }
+        },
+        "then": {
+          "not": {
+            "required": [
+              "object_id"
+            ]
+          }
+        }
+      }
+    },
+    "$defs": {
+      "Routine": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Unique identifier for the routine.",
+            "additionalProperties": false
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The date and time when the routine was created.",
+            "additionalProperties": false
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the routine.",
+            "additionalProperties": false
+          },
+          "workouts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Workout"
+            },
+            "description": "A list of workouts included in the routine.",
+            "additionalProperties": false
+          },
+          "isCurrent": {
+            "type": "boolean",
+            "description": "Indicates if this routine is currently active.",
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "name",
+          "workouts"
+        ],
+        "additionalProperties": false
+      },
+      "Workout": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Unique identifier for the workout.",
+            "additionalProperties": false
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The date and time when the workout was created.",
+            "additionalProperties": false
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the workout.",
+            "additionalProperties": false
+          },
+          "exercises": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/Exercise"
+            },
+            "description": "A list of exercises included in the workout.",
+            "additionalProperties": false
+          },
+          "isCurrent": {
+            "type": "boolean",
+            "description": "Indicates if this workout is currently active.",
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "name",
+          "exercises"
+        ],
+        "additionalProperties": false
+      },
+      "Exercise": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Unique identifier for the exercise.",
+            "additionalProperties": false
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The date and time when the exercise was created.",
+            "additionalProperties": false
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the exercise.",
+            "additionalProperties": false
+          },
+          "sets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/ExerciseSet"
+            },
+            "description": "A list of sets included in the exercise.",
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "name",
+          "sets"
+        ],
+        "additionalProperties": false
+      },
+      "ExerciseSet": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Unique identifier for the exercise set.",
+            "additionalProperties": false
+          },
+          "reps": {
+            "type": "integer",
+            "description": "The number of repetitions in the set.",
+            "additionalProperties": false
+          },
+          "weight": {
+            "type": "number",
+            "description": "The weight used for the set.",
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "id",
+          "reps",
+          "weight"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "operation",
+      "object_id",
+      "payload"
+    ],
+    "additionalProperties": false
+  }
+}

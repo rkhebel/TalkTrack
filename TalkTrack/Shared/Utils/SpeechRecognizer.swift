@@ -11,7 +11,7 @@ import Speech
 import SwiftUI
 
 /// A helper for transcribing speech to text using SFSpeechRecognizer and AVAudioEngine.
-class SpeechRecognizer: ObservableObject {
+actor SpeechRecognizer: ObservableObject {
     enum RecognizerError: LocalizedError {
         case nilRecognizer
         case notAuthorizedToRecognize
